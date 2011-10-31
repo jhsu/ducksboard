@@ -3,7 +3,7 @@ module Ducksboard
   class Widget
     include ::HTTParty
     base_uri "https://push.ducksboard.com/values"
-    basic_auth Configuration.api_key, 'ducksboard-gem'
+    basic_auth Ducksboard.api_key, 'ducksboard-gem'
 
     attr_accessor :id, :data, :type
 

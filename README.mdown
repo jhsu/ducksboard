@@ -1,0 +1,15 @@
+## Ducksboard API Ruby wrapper
+
+### Configuration
+
+API Key can be set in the environment or in an initializer
+
+    export DUCKSBOARD_API_KEY='YOURKEY'
+
+    Ducksboard.api_key = 'YOURKEY'
+
+### Counter
+
+    widget = Ducksbaord::Counter.new(1234) # Widget numeric id
+    widget.value = 10
+    widget.save

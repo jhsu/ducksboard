@@ -1,8 +1,9 @@
 require 'httparty'
 
 module Ducksboard
+  class << self ; attr_accessor :api_key end
+  @api_key = ENV['DUCKSBOARD_API_KEY']
 end
 
-require 'ducksboard/configuration'
 require 'ducksboard/widget'
 require 'ducksboard/counter'
