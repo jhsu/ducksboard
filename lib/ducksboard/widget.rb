@@ -3,7 +3,7 @@ module Ducksboard
   class Widget
     include ::HTTParty
     base_uri "https://push.ducksboard.com/values"
-    default_params basic_auth: {username: Configuration.api_key}
+    basic_auth Configuration.api_key, 'ducksboard-gem'
 
     attr_accessor :id, :data, :type
 
@@ -14,7 +14,11 @@ module Ducksboard
 
     def update(data=nil)
       @data = data if data
-      self.class.post('/' + id.to_s, body: @data.to_json)
+      self.class.post('/' + id.to_s, :body => @data.to_json)
+    end
+
+    def save
+      update.code.to_i == 200
     end
   end
 end
