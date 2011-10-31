@@ -2,9 +2,11 @@
 
 ### Configuration
 
-API Key can be set in the environment or in an initializer
+API Key can be set in the environment
 
     export DUCKSBOARD_API_KEY='YOURKEY'
+
+or in an initializer
 
     Ducksboard.api_key = 'YOURKEY'
 
