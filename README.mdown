@@ -29,6 +29,6 @@ or in an initializer
 ### Graph
 
     widget = Ducksboard::Graph.new(1236)
-    widget.timestamp = 1310649204
+    widget.timestamp = Time.now.to_i
     widget.value = 198
     widget.save
