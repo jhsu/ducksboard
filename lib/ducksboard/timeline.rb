@@ -10,17 +10,22 @@ module Ducksboard
       :deleted => "https://app.ducksboard.com/static/img/timeline/deleted.png"
     }
 
+    def initialize(*args)
+      super
+      @data[:value] ||={}
+    end
+
     def title; @data[:title] end
     def image; @data[:image] end
     def content; @data[:image] end
     def link; @data[:image] end
 
     def title=(text)
-      @data[:title] = text
+      @data[:value][:title] = text
     end
 
     def image=(url)
-      @data[:image] = if url =~ /^http/
+      @data[:value][:image] = if url =~ /^http/
         url
       else
         ICONS[url.to_sym]
@@ -28,11 +33,11 @@ module Ducksboard
     end
 
     def content=(text)
-      @data[:content] = text
+      @data[:value][:content] = text
     end
 
     def link=(url)
-      @data[:link] = url
+      @data[:value][:link] = url
     end
   end
 end
