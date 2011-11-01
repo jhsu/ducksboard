@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'ducksboard'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.summary     = "API wrapper for ducksboard.com dashboard"
   s.description = "Ruby API wrapper for ducksboard realtime dashboard using HTTParty"
   s.authors     = ["Joseph Hsu"]
