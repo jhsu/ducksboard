@@ -25,3 +25,10 @@ or in an initializer
     widget.caption = "Ducksboard logo!"
     widget.timestamp = 1310649204
     widget.save
+
+### Graph
+
+    widget = Ducksboard::Graph.new(1236)
+    widget.timestamp = 1310649204
+    widget.value = 198
+    widget.save
