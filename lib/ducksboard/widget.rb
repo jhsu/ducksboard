@@ -34,7 +34,15 @@ module Ducksboard
     end
 
     def save
-      update.code.to_i == 200
+      if valid?
+        update.code.to_i == 200
+      else
+        raise "Invalid Data: #{@data.inspect}"
+      end
+    end
+
+    def valid?
+      true
     end
   end
 end
