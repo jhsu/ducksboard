@@ -26,9 +26,27 @@ or in an initializer
     widget.timestamp = 1310649204
     widget.save
 
+### Gauge
+
+    widget = DUcksboard::GRaph.new(1235)
+    widget.value = 0.93
+    widget.save
+
 ### Graph
 
+    # remember that the graph widgets need atleast 2 points before it displays anything
     widget = Ducksboard::Graph.new(1236)
     widget.timestamp = Time.now.to_i
     widget.value = 198
     widget.save
+
+### Timeline
+
+    widget = Ducksbaord::Timeline.new(1237)
+    widget.title = "A Title"
+    widget.image = "http://url.to.io/some_image.gif"
+    # or
+    widget.image = :edited
+    # any of the following as a string or symbol: orange, red, green, created, edited or deleted
+    widget.content = "text content"
+    widget.link = "http://google.com"
