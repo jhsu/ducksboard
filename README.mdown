@@ -15,3 +15,13 @@ or in an initializer
     widget = Ducksbaord::Counter.new(1234) # Widget numeric id
     widget.value = 10
     widget.save
+
+### Image
+
+    widget = Ducksboard::Image.new(1235)
+    widget.source = "https://dashboard.ducksboard.com/static/accounts/img/logo_small.png"
+    # or
+    widget.source = "~/Pictures/logo.png"
+    widget.caption = "Ducksboard logo!"
+    widget.timestamp = 1310649204
+    widget.save

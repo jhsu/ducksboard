@@ -12,6 +12,22 @@ module Ducksboard
       @data = data
     end
 
+    def value
+      @data[:value]
+    end
+
+    def value=(val)
+      @data[:value] = val
+    end
+
+    def timestamp
+      @data[:timestamp]
+    end
+
+    def timestamp=(time)
+      @data[:timestamp] = time
+    end
+
     def update(data=nil)
       @data = data if data
       self.class.post('/' + id.to_s, :body => @data.to_json)
