@@ -10,9 +10,15 @@ or in an initializer
 
     Ducksboard.api_key = 'YOURKEY'
 
+### Box
+
+    widget = Ducksbaord::Box.new(1234) # Widget numeric id
+    widget.value = 10
+    widget.save
+
 ### Counter
 
-    widget = Ducksbaord::Counter.new(1234) # Widget numeric id
+    widget = Ducksbaord::Counter.new(1234)
     widget.value = 10
     widget.save
 
@@ -38,6 +44,12 @@ or in an initializer
     widget = Ducksboard::Graph.new(1236)
     widget.timestamp = Time.now.to_i
     widget.value = 198
+    widget.save
+
+### Pin
+
+    widget = Ducksbaord::Pin.new(1234)
+    widget.value = 10
     widget.save
 
 ### Timeline
