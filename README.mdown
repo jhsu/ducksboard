@@ -34,7 +34,7 @@ or in an initializer
 
 ### Gauge
 
-    widget = Ducksboard::Graph.new(1235)
+    widget = Ducksboard::Gauge.new(1235)
     widget.value = 0.93
     widget.save
 
