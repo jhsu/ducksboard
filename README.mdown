@@ -12,13 +12,13 @@ or in an initializer
 
 ### Box
 
-    widget = Ducksboard::Box.new(1234) # Widget numeric id
+    widget = Ducksbaord::Box.new(1234) # Widget numeric id
     widget.value = 10
     widget.save
 
 ### Counter
 
-    widget = Ducksboard::Counter.new(1234)
+    widget = Ducksbaord::Counter.new(1234)
     widget.value = 10
     widget.save
 
@@ -34,7 +34,7 @@ or in an initializer
 
 ### Gauge
 
-    widget = Ducksboard::Gauge.new(1235)
+    widget = DUcksboard::GRaph.new(1235)
     widget.value = 0.93
     widget.save
 
@@ -48,13 +48,13 @@ or in an initializer
 
 ### Pin
 
-    widget = Ducksboard::Pin.new(1234)
+    widget = Ducksbaord::Pin.new(1234)
     widget.value = 10
     widget.save
 
 ### Timeline
 
-    widget = Ducksboard::Timeline.new(1237)
+    widget = Ducksbaord::Timeline.new(1237)
     widget.title = "A Title"
     widget.image = "http://url.to.io/some_image.gif"
     # or
@@ -62,3 +62,13 @@ or in an initializer
     # any of the following as a string or symbol: orange, red, green, created, edited or deleted
     widget.content = "text content"
     widget.link = "http://google.com"
+
+### Leaderboard
+
+widget1 = Ducksboard::Leaderboard.new(56803)
+widget1.linha = [{"name" => 'Titulo 1', "values" => [12,13,14]}, 
+                 {"name" => 'Titulo 2', "values" => [12,13,142]},
+                 ]
+widget1.save
+
+
