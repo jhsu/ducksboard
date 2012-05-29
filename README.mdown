@@ -65,10 +65,10 @@ or in an initializer
 
 ### Leaderboard
 
-widget1 = Ducksboard::Leaderboard.new(56803)
-widget1.linha = [{"name" => 'Titulo 1', "values" => [12,13,14]}, 
-                 {"name" => 'Titulo 2', "values" => [12,13,142]},
-                 ]
-widget1.save
+    widget1 = Ducksboard::Leaderboard.new(56803)
+    widget1.linha = [{"name" => 'Titulo 1', "values" => [12,13,14]}, 
+                     {"name" => 'Titulo 2', "values" => [12,13,142]},
+                     ]
+    widget1.save
 
 
