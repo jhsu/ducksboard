@@ -34,7 +34,7 @@ or in an initializer
 
 ### Gauge
 
-    widget = DUcksboard::GRaph.new(1235)
+    widget = Ducksboard::Gauge.new(1235)
     widget.value = 0.93
     widget.save
 
@@ -71,4 +71,14 @@ or in an initializer
                      ]
     widget1.save
 
+### Pull API
 
+    # You can use the HTTP Pull API to retrieve historical data from any widget.
+    # It will be returned in a map as per the API (http://dev.ducksboard.com/apidoc/pull-api-http)
+
+    widget = Ducksboard::Gauge.new(1235)
+    data = widget.since(300)['data']
+    # or
+    data = widget.last_values(15)
+    # or
+    data = widget.timespan(:daily, "Europe/London")

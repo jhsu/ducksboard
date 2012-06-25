@@ -2,7 +2,6 @@ require 'json'
 module Ducksboard
   class Widget
     include ::HTTParty
-    base_uri "https://push.ducksboard.com/values"
 
     attr_accessor :id, :data, :type
 
@@ -29,7 +28,6 @@ module Ducksboard
 
     def update(data=nil)
       @data = data if data
-      auth = {:username => ::Ducksboard.api_key, :password => "ducksboard-gem"}
       self.class.post('/' + id.to_s,
         :basic_auth => auth,
         :body => @data.to_json)
@@ -45,6 +43,38 @@ module Ducksboard
 
     def valid?
       true
+    end
+
+    def last_values(number_of_values=3)
+      pull("last?count=#{number_of_values}")
+    end
+
+    def since(seconds_ago=3600)
+      pull("since?seconds=#{seconds_ago.to_i}")
+    end
+
+    def timespan(timespan=:monthly, timezone="UTC")
+      pull("timespan?timespan=#{timespan.to_s}&timezone=#{timezone}")
+    end
+
+    private
+
+    PUSH_URI = "https://push.ducksboard.com/values"
+    PULL_URI = "https://pull.ducksboard.com/values"
+
+    def auth()
+      {:username => ::Ducksboard.api_key, :password => "ducksboard-gem"} 
+    end
+
+    def pull(service_uri)
+      response = self.class.get("#{PULL_URI}/#{@id.to_s}/#{service_uri}",
+        :basic_auth => auth)
+
+      if response.code.to_i == 200
+        JSON.parse(response.body)
+      else
+        raise "Unexpected response code: #{response.code}; body: #{response.body}"
+      end
     end
   end
 end
