@@ -12,13 +12,13 @@ or in an initializer
 
 ### Box
 
-    widget = Ducksbaord::Box.new(1234) # Widget numeric id
+    widget = Ducksboard::Box.new(1234) # Widget numeric id
     widget.value = 10
     widget.save
 
 ### Counter
 
-    widget = Ducksbaord::Counter.new(1234)
+    widget = Ducksboard::Counter.new(1234)
     widget.value = 10
     widget.save
 
@@ -48,13 +48,13 @@ or in an initializer
 
 ### Pin
 
-    widget = Ducksbaord::Pin.new(1234)
+    widget = Ducksboard::Pin.new(1234)
     widget.value = 10
     widget.save
 
 ### Timeline
 
-    widget = Ducksbaord::Timeline.new(1237)
+    widget = Ducksboard::Timeline.new(1237)
     widget.title = "A Title"
     widget.image = "http://url.to.io/some_image.gif"
     # or
