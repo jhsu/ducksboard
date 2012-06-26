@@ -62,3 +62,23 @@ or in an initializer
     # any of the following as a string or symbol: orange, red, green, created, edited or deleted
     widget.content = "text content"
     widget.link = "http://google.com"
+
+### Leaderboard
+
+    widget1 = Ducksboard::Leaderboard.new(56803)
+    widget1.linha = [{"name" => 'Titulo 1', "values" => [12,13,14]}, 
+                     {"name" => 'Titulo 2', "values" => [12,13,142]},
+                     ]
+    widget1.save
+
+### Pull API
+
+    # You can use the HTTP Pull API to retrieve historical data from any widget.
+    # It will be returned in a map as per the API (http://dev.ducksboard.com/apidoc/pull-api-http)
+
+    widget = Ducksboard::Gauge.new(1235)
+    data = widget.since(300)['data']
+    # or
+    data = widget.last_values(15)
+    # or
+    data = widget.timespan(:daily, "Europe/London")
