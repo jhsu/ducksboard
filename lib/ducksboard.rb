@@ -7,6 +7,7 @@ module Ducksboard
   end
 end
 
+require 'ducksboard/slot'
 require 'ducksboard/widget'
 require 'ducksboard/box'
 require 'ducksboard/counter'

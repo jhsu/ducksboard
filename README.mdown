@@ -2,83 +2,30 @@
 
 ### Configuration
 
-API Key can be set in the environment
+API Key can be set in the environment (such as `~/.bashrc`).
 
     export DUCKSBOARD_API_KEY='YOURKEY'
 
-or in an initializer
+or in an initializer (such as `config/initializers/ducksboard.rb`)
 
     Ducksboard.api_key = 'YOURKEY'
 
-### Box
+### Sending Data
 
-    widget = Ducksboard::Box.new(1234) # Widget numeric id
-    widget.value = 10
-    widget.save
+Data can be sent to slots in formats specified in the [Ducksboard API
+documentation](http://dev.ducksboard.com/apidoc/slot-kinds).
 
-### Counter
+```ruby
+# Update the value a slot (ie. counter)
+slot = Ducksboard::Slot.new(123)
+slot.update(:value => 20)
 
-    widget = Ducksboard::Counter.new(1234)
-    widget.value = 10
-    widget.save
-
-### Image
-
-    widget = Ducksboard::Image.new(1235)
-    widget.source = "https://dashboard.ducksboard.com/static/accounts/img/logo_small.png"
-    # or
-    widget.source = "~/Pictures/logo.png"
-    widget.caption = "Ducksboard logo!"
-    widget.timestamp = 1310649204
-    widget.save
-
-### Gauge
-
-    widget = Ducksboard::Gauge.new(1235)
-    widget.value = 0.93
-    widget.save
-
-### Graph
-
-    # remember that the graph widgets need atleast 2 points before it displays anything
-    widget = Ducksboard::Graph.new(1236)
-    widget.timestamp = Time.now.to_i
-    widget.value = 198
-    widget.save
-
-### Pin
-
-    widget = Ducksboard::Pin.new(1234)
-    widget.value = 10
-    widget.save
-
-### Timeline
-
-    widget = Ducksboard::Timeline.new(1237)
-    widget.title = "A Title"
-    widget.image = "http://url.to.io/some_image.gif"
-    # or
-    widget.image = :edited
-    # any of the following as a string or symbol: orange, red, green, created, edited or deleted
-    widget.content = "text content"
-    widget.link = "http://google.com"
-
-### Leaderboard
-
-    widget1 = Ducksboard::Leaderboard.new(56803)
-    widget1.linha = [{"name" => 'Titulo 1', "values" => [12,13,14]}, 
-                     {"name" => 'Titulo 2', "values" => [12,13,142]},
-                     ]
-    widget1.save
-
-### Pull API
-
-    # You can use the HTTP Pull API to retrieve historical data from any widget.
-    # It will be returned in a map as per the API (http://dev.ducksboard.com/apidoc/pull-api-http)
-
-    widget = Ducksboard::Gauge.new(1235)
-    data = widget.since(300)['data']
-    # or
-    data = widget.last_values(15)
-    # or
-    data = widget.timespan(:daily, "Europe/London")
+# Update a leaderboard
+slot = Ducksboard::Slot.new("leaderboard")
+slot.update(:value => {
+  :boards => [
+    {:name => "person 1", values => [123, 24.5]},
+    {:name => "person 2", values => [224, 21.0]}
+  ]
+})
+```
