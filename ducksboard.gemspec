@@ -10,10 +10,13 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = '>= 1.8.7'
 
+  s.add_runtime_dependency 'addressable', '~> 2.3', '>= 2.3.3'
   s.add_runtime_dependency 'httparty', '~> 0.10', '>= 0.10.2'
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency 'minitest', '~> 4.6.2'
+  s.add_development_dependency 'webmock', '~> 1.11', '>= 1.11.0'
   s.add_development_dependency 'mocha', '~> 0.13', '>= 0.13.3'
+  s.add_development_dependency 'pry', '~> 0.9', '>= 0.9.2'
 
   s.post_install_message = <<-DESC
   Quack! (in real-time)"

@@ -1,18 +1,14 @@
 require 'minitest_helper'
 
 describe Ducksboard::Slot do
-  subject do
-    Ducksboard::Slot
-  end
+  let(:slot) { Ducksboard::Slot.new(123) }
 
   it "can initialize with an id" do
-    slot = Ducksboard::Slot.new(123)
     slot.id.must_equal 123
   end
 
-  describe "with a slot" do
-    let(:slot) { Ducksboard::Slot.new(123) }
 
+  describe "Push" do
     it "sends data" do
       data = {:value => 123 }
 
@@ -32,6 +28,49 @@ describe Ducksboard::Slot do
       slot.expects(:delete)
       slot.destroy
     end
-  end
+  end # Push
+
+  describe "Pull" do
+    it "grabs last number of data" do
+      stub_request(:get, /pull\.ducksboard\.com.*last/).to_return(
+        :body => <<-RESPONSE,
+{
+  "count": 15,
+  "data": [
+            {
+              "timestamp": 1332971928.20006,
+              "value": 132.0
+            }
+          ]
+}
+        RESPONSE
+        :headers => {'Content-Type' => 'application/json'})
+      response = slot.last()
+      response.must_be_kind_of Hash
+    end
+
+    it "grabs data since" do
+      stub_request(:get, /pull\.ducksboard.com.*since/).to_return(
+        :body => <<-RESPONSE,
+{
+  "count": 15,
+  "data": [
+            {
+              "timestamp": 1332971928.20006,
+              "value": 132.0
+            }
+          ]
+}
+        RESPONSE
+        :headers => {'Content-Type' => 'application/json'})
+      response = slot.since()
+      response.must_be_kind_of Hash
+    end
+
+    it "grabs data by timespan" do
+      skip "pending implementation"
+    end
+
+  end # Pull
 
 end
