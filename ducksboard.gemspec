@@ -1,6 +1,8 @@
+require File.join(File.dirname(__FILE__), 'lib/ducksboard/version')
+
 Gem::Specification.new do |s|
   s.name        = 'ducksboard'
-  s.version     = '0.1.5'
+  s.version     = Ducksboard::VERSION
   s.summary     = "API wrapper for ducksboard.com dashboard"
   s.description = "Ruby API wrapper for ducksboard realtime dashboard using HTTParty"
   s.authors     = ["Joseph Hsu"]

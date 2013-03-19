@@ -8,6 +8,7 @@ module Ducksboard
   end
 end
 
+require 'ducksboard/version'
 require 'ducksboard/request'
 require 'ducksboard/push'
 require 'ducksboard/pull'
