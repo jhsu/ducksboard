@@ -1,6 +1,7 @@
 ## Ducksboard API Ruby wrapper
 
 [![Code Climate](https://codeclimate.com/github/jhsu/ducksboard.png)](https://codeclimate.com/github/jhsu/ducksboard)
+[![Build Status](https://travis-ci.org/jhsu/ducksboard.png?branch=simple-slot-push)](https://travis-ci.org/jhsu/ducksboard)
 
 ### Configuration
 
