@@ -1,5 +1,7 @@
 ## Ducksboard API Ruby wrapper
 
+[![Code Climate](https://codeclimate.com/github/jhsu/ducksboard.png)](https://codeclimate.com/github/jhsu/ducksboard)
+
 ### Configuration
 
 API Key can be set in the environment (such as `~/.bashrc`).
