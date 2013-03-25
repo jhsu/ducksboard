@@ -28,8 +28,11 @@ module Ducksboard
     #
     # options - A hash of options:
     #   timespan - A string timespan.
+    #   timezone - A string timezone (default: UTC).
     #
+    # Returns a hash response.
     def timespan(options={})
+      get("timespan", options)
     end
 
     protected

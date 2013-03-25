@@ -13,7 +13,7 @@ or in an initializer (such as `config/initializers/ducksboard.rb`)
 
     Ducksboard.api_key = 'YOURKEY'
 
-### Sending Data
+### Sending Data (Push API)
 
 Data can be sent to slots in formats specified in the [Ducksboard API
 documentation](http://dev.ducksboard.com/apidoc/slot-kinds).
@@ -31,4 +31,20 @@ slot.update(:value => {
     {:name => "person 2", values => [224, 21.0]}
   ]
 })
+```
+
+### Pulling Data (Pull API)
+
+Fetching data from a slot on Ducksboard. Several convinience methods are
+provided to fetch data through the [Ducksboard HTTP Pull
+API](http://dev.ducksboard.com/apidoc/pull-api-http/#resource-endpoints). Each
+pull returns a hash of data with a data at `response['data']`.
+
+```ruby
+slot = Ducksboard::Slot.new(123)
+slot.last(:count => 15)
+
+slot.since(:seconds => 5 * 60)
+
+slot.timespan(:timespan => "weekly", :timezone => "UTC")
 ```
