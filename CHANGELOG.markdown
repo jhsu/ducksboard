@@ -1,6 +1,9 @@
-# 1.0.0
+# 1.0.0.beta.1
 
-- Remove all slot specific code and push and pull all through `Ducksboard::Slot`
+- All slot interactions now go through `Ducksboard::Slot`
+
+Breaking Changes:
+
 - Breaks anything depending on slot type specific classes
 
 # 0.1.5

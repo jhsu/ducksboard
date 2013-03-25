@@ -1,4 +1,4 @@
 module Ducksboard
-  VERSION = Version = "1.0.0.beta" 
+  VERSION = Version = "1.0.0.beta.1"
 end
 
