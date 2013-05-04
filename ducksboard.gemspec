@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'httparty', '~> 0.8', '>= 0.8.1'
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency 'minitest', '~> 4.6.2'
+  s.add_development_dependency 'guard-minitest'
 
   s.post_install_message = <<-DESC
   Quack! (in real-time)"
