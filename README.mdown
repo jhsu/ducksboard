@@ -49,7 +49,3 @@ slot.since(:seconds => 5 * 60)
 slot.timespan(:timespan => "weekly", :timezone => "UTC")
 ```
 
-
-### TODO
-
-- [ ] Would like some integration tests that actually hit the real API
