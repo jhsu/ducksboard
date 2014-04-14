@@ -1,7 +1,7 @@
 module Ducksboard
   class Box < Widget
     def valid?
-      @data[:value].is_a?(Integer)
+      @data[:value].kind_of?(Numeric)
     end
   end
 end
